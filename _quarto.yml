@@ -1,0 +1,4 @@
+project:
+  title: "Code Reviews in BFL"
+execute:
+  freeze: auto

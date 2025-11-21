@@ -1,0 +1,77 @@
+---
+title: "Code Reviews in BFL"
+author:
+    name: Connor Duffin
+    affiliation: BFL Research Engineer
+date: 2025-11-24
+format:
+    revealjs:
+        theme: simple
+---
+
+## Structure
+
+- Recap on code reviews
+- Workflow
+- Tips
+- Walkthrough
+- Final notes
+
+# Code reviews primer
+
+## Code reviews?
+
+- Two or more people go through a piece of code together to understand its behaviour, to try and *improve* it.
+    - *Improve?* Easier-to-understand (more maintainable), faster, consistent with other design patterns in the pipeline.
+
+**We are going to focus on the role of the *reviewer* to try and demystify the process of giving a code review.**
+
+## Workflow {.smaller}
+
+Now, let's suppose that we want to, for example, fix an issue on one of the BFL repos. The entire process goes as follows:
+
+1. Make sure you are on the most up-to-date version of the repo, on the `main` branch. You may have to `git pull` to fetch the latest version from GitHub.
+2. Create a new branch, locally, to make your changes.
+3. Make your changes, committing them as you go, and push them to your development branch on GitHub.
+4. Once you are happy that you have completed your fix, open a *pull request* on GitHub. 
+    - Add in notes explaining what you did, why you did it, and ask for *Copilot review* **and** a BFL team member to review -- you can do more than 1 person of course!
+
+## Workflow {.smaller}
+
+5. The reviewer will go through the code, offering some comments and feedback. On the reviewer side, treat this as you were proofreading someone else's writing: you don't make any changes yourself, but you go through and seek clarification on things that confuse you.
+6. Depending on the review, you either
+    a) be approved to merge back into `main`, or;
+    b) be requested to make some changes in the pipeline.
+7. If changes are requested, the **coder** will make the changes, following the suggestions from the reviewer, then submit for re-review.
+8. Repeat this process until the issues are resolved. *Then,* merge back into `main` and delete your development branch.
+
+# The Reviewers Job
+
+## So... What is my job..?
+
+- *Seek clarification* on things that confuse you.
+- Question weird logic or decisions that don't align with how we have done things previously ("code smells").
+- Does it aim to do one thing? Or can it be resized into smaller chunks? Aim for < 200 LOC changes.
+- **Routine:** documentation/comments *look* good?
+- **Routine:** check tests *look* good (and included, if new feature).
+
+## Tips for PR (coders)
+
+- Keep changes to ~200 LOC maximum.
+- Clear comments *in* the PR to communicate your intent.
+- Use `#` to tag issues that the PR closes.
+- You can use 'close keywords' (fixes, closes) to make sure that issues are appropriately tagged with the PR.
+    - For example you can write "This PR fixes #25..." and it will automatically close issue #25 when the PR is merged.
+
+## Tips for Reviewers
+
+- Don't take too long: aim for < 30 minutes for each PR. If it takes ages it's a sign that something is weird.
+- Try and turn PRs around as quickly as you can to avoid context switching for the coder. 
+- You don't have to change anything! Nor is it your job to run the code. You just need to read it, make comments, and offer constructive criticism.
+- LGTM: "Looks good to me/merge", commonly used to signify approval!
+
+# Example...
+
+# That's it!
+
+Any questions?
